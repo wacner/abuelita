@@ -1,0 +1,172 @@
+{
+  "categorias": [
+    {
+      "id": "pizza",
+      "nombre": "Pizza",
+      "emoji": "🍕",
+      "items": [
+        {
+          "id": "pizza_combo1",
+          "nombre": "Combo 1",
+          "contenido": "1 pizza grande familiar (38cm) con ingredientes a tu preferencia + 1 refresco de litro",
+          "precio": 16,
+          "opciones_sabor": []
+        },
+        {
+          "id": "pizza_combo2",
+          "nombre": "Combo 2",
+          "contenido": "2 pizzas medianas (32cm) con jamón, queso, tocineta y maíz + 1 refresco personal",
+          "precio": 12,
+          "opciones_sabor": []
+        }
+      ]
+    },
+    {
+      "id": "empanadas",
+      "nombre": "Empanadas",
+      "emoji": "🫔",
+      "items": [
+        {
+          "id": "empanadas_combo",
+          "nombre": "Combo Empanadas",
+          "contenido": "2 empanadas, sabor a elección + refresco + salsas",
+          "precio": 2.50,
+          "opciones_sabor": ["Carne mechada", "Jamón y queso", "Pollo", "Carne y queso"]
+        }
+      ]
+    },
+    {
+      "id": "pastelitos",
+      "nombre": "Pastelitos",
+      "emoji": "🥟",
+      "items": [
+        {
+          "id": "pastelitos_combo",
+          "nombre": "Combo Pastelitos",
+          "contenido": "2 pastelitos, sabor a elección + refresco",
+          "precio": 2.50,
+          "opciones_sabor": ["Carne mechada", "Jamón y queso", "Pollo"]
+        }
+      ]
+    },
+    {
+      "id": "comida_china",
+      "nombre": "Comida China",
+      "emoji": "🥡",
+      "items": [
+        {
+          "id": "arroz_pequeno",
+          "nombre": "Arroz Chino Especial Pequeño",
+          "contenido": "Arroz chino especial + 1 lumpia",
+          "precio": 4,
+          "opciones_sabor": []
+        },
+        {
+          "id": "arroz_mediano",
+          "nombre": "Arroz Chino Especial Mediano",
+          "contenido": "Arroz chino especial + 2 lumpias",
+          "precio": 6,
+          "opciones_sabor": []
+        },
+        {
+          "id": "arroz_grande",
+          "nombre": "Arroz Chino Especial Grande",
+          "contenido": "Arroz chino especial + 3 lumpias",
+          "precio": 8,
+          "opciones_sabor": []
+        },
+        {
+          "id": "chopsuey",
+          "nombre": "Chopsuey de Pollo",
+          "contenido": "Pollo, jamón, tocineta y vegetales",
+          "precio": 5,
+          "opciones_sabor": []
+        },
+        {
+          "id": "pollo_agridulce",
+          "nombre": "Pollo Agridulce",
+          "contenido": "Con piña",
+          "precio": 5,
+          "opciones_sabor": []
+        }
+      ]
+    },
+    {
+      "id": "cordon_blue",
+      "nombre": "Cordon Blue",
+      "emoji": "🍗",
+      "items": [
+        {
+          "id": "cordon_blue_pollo",
+          "nombre": "Cordon Blue de Pollo",
+          "contenido": "Pechuga completa con jamón, queso y tocineta + papas fritas + arroz chino especial + refresco de litro",
+          "precio": 14,
+          "opciones_sabor": []
+        }
+      ]
+    },
+    {
+      "id": "combos",
+      "nombre": "Combos y Promociones",
+      "emoji": "🎉",
+      "items": [
+        {
+          "id": "super_combo",
+          "nombre": "Súper Combo La Abuelita",
+          "contenido": "3 lumpias (jamón, queso, tocineta, peperoni y vegetales) + 1 arroz chino especial + refresco de litro + salsas",
+          "precio": 10,
+          "opciones_sabor": []
+        },
+        {
+          "id": "combo_china1",
+          "nombre": "Combo China 1",
+          "contenido": "3 arroz chinos + 1 pollo agridulce + 3 lumpias + 1 refresco de litro",
+          "precio": 14,
+          "opciones_sabor": []
+        },
+        {
+          "id": "combo_china2",
+          "nombre": "Combo China 2",
+          "contenido": "3 arroz chinos especiales (pollo, carne, cochino, jamón, tocineta, salchichón, peperoni) + pollo agridulce + 3 lumpias de queso + 3 panes + 1 refresco de litro",
+          "precio": 12,
+          "opciones_sabor": []
+        },
+        {
+          "id": "combo_china3",
+          "nombre": "Combo China 3",
+          "contenido": "1 arroz chino + 4 lumpias mixtas (jamón, queso, tocineta, salchichón y peperoni) + 1 refresco de litro",
+          "precio": 10,
+          "opciones_sabor": []
+        },
+        {
+          "id": "combo_china4",
+          "nombre": "Combo China 4",
+          "contenido": "3 arroz chinos (pollo, carne, cochino, tocineta, salchichón y peperoni) + 3 lumpias + 1 refresco de litro",
+          "precio": 12,
+          "opciones_sabor": []
+        },
+        {
+          "id": "combo_china5",
+          "nombre": "Combo China 5",
+          "contenido": "2 arroz chinos + 2 pizzas + 1 refresco de litro",
+          "precio": 15,
+          "opciones_sabor": []
+        },
+        {
+          "id": "combo_china6",
+          "nombre": "Combo China 6",
+          "contenido": "3 arroz chinos especiales + 1 chopsuey de pollo + 3 lumpias + 1 refresco de litro",
+          "precio": 14,
+          "opciones_sabor": []
+        },
+        {
+          "id": "mega_combo",
+          "nombre": "Mega Combo",
+          "contenido": "2 pizzas + 2 arroz chinos (con salsas) + 3 lumpias + 1 refresco de litro",
+          "precio": 18,
+          "opciones_sabor": []
+        }
+      ]
+    }
+  ]
+}

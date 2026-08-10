@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>La Casa de la Abuelita</title>
+  <!-- SDK de Telegram WebApp -->
+  <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ====== SPLASH SCREEN ====== -->
+  <div id="splashScreen" class="screen active">
+    <div class="splash-content">
+      <div class="splash-logo">👨‍🍳</div>
+      <h1 class="splash-title">La Casa de la Abuelita</h1>
+      <p class="splash-subtitle">Comida Internacional</p>
+      <div class="spinner"></div>
+      <p class="splash-loading">Cargando menú...</p>
+    </div>
+  </div>
+
+  <!-- ====== FORMULARIO DE ENTREGA ====== -->
+  <div id="deliveryScreen" class="screen">
+    <div class="header">
+      <span class="header-title">📍 Datos de entrega</span>
+    </div>
+    <div class="screen-content">
+      <div class="card">
+        <p class="form-info">Por favor, ingresa tu teléfono y dirección para recibir tu pedido.</p>
+        <form id="deliveryForm">
+          <div class="form-group">
+            <label for="phoneInput">Teléfono (ej. 04121234567)</label>
+            <input type="tel" id="phoneInput" placeholder="04121234567" required>
+            <span class="error-msg" id="phoneError">Formato inválido. Debe ser 0412-1234567 (10 dígitos)</span>
+          </div>
+          <div class="form-group">
+            <label for="addressInput">Dirección</label>
+            <input type="text" id="addressInput" placeholder="Calle, casa, referencias..." required>
+            <span class="error-msg" id="addressError">Mínimo 10 caracteres</span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Confirmar y ver menú</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== CATÁLOGO ====== -->
+  <div id="catalogScreen" class="screen">
+    <div class="header">
+      <span class="header-title">🍽️ Menú</span>
+      <span class="header-badge" id="cartBadge">0</span>
+    </div>
+    <div class="screen-content">
+      <!-- Categorías como pestañas -->
+      <div class="tabs" id="categoryTabs"></div>
+      <!-- Lista de ítems -->
+      <div id="itemsContainer" class="items-grid"></div>
+    </div>
+    <!-- Botón flotante de carrito -->
+    <button class="fab" id="fabCart" style="display:none;">
+      🛒 Ver carrito (<span id="fabCount">0</span>)
+    </button>
+  </div>
+
+  <!-- ====== SELECTOR DE SABOR (modal) ====== -->
+  <div id="flavorModal" class="modal">
+    <div class="modal-content">
+      <h3 id="flavorItemName">Elige sabor</h3>
+      <div id="flavorOptions" class="flavor-options"></div>
+      <button id="flavorConfirm" class="btn btn-primary">Agregar al carrito</button>
+      <button id="flavorCancel" class="btn btn-secondary">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- ====== CARRITO ====== -->
+  <div id="cartScreen" class="screen">
+    <div class="header">
+      <span class="header-title">🛒 Tu pedido</span>
+      <button id="cartBackBtn" class="btn-icon">←</button>
+    </div>
+    <div class="screen-content">
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-notes">
+        <label for="notesInput">Notas adicionales (opcional)</label>
+        <textarea id="notesInput" placeholder="Ej. sin cebolla, tocar timbre 2 veces..." maxlength="300"></textarea>
+      </div>
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button id="checkoutBtn" class="btn btn-primary btn-block" disabled>Continuar al pago</button>
+    </div>
+  </div>
+
+  <!-- ====== PAGO ====== -->
+  <div id="paymentScreen" class="screen">
+    <div class="header">
+      <span class="header-title">💳 Pago</span>
+    </div>
+    <div class="screen-content">
+      <div class="payment-info">
+        <h4>Datos de Pago Móvil</h4>
+        <div class="payment-card">
+          <p><span>Banco:</span> 0102</p>
+          <p><span>Teléfono:</span> 0414-5174446</p>
+          <p><span>Cédula/RIF:</span> 17616491</p>
+        </div>
+        <p class="payment-instruction">Realiza tu pago a estos datos y luego ingresa la referencia de 6 dígitos.</p>
+      </div>
+      <div class="form-group">
+        <label for="referenceInput">Referencia de pago (6 dígitos)</label>
+        <input type="text" id="referenceInput" placeholder="Ej. 123456" maxlength="6" inputmode="numeric" pattern="\d{6}">
+        <span class="error-msg" id="referenceError">Debe tener exactamente 6 dígitos numéricos</span>
+      </div>
+      <button id="submitOrderBtn" class="btn btn-primary btn-block" disabled>Enviar pedido</button>
+      <div id="paymentLoading" style="display:none;" class="loading-indicator">Enviando pedido...</div>
+    </div>
+  </div>
+
+  <!-- ====== CONFIRMACIÓN ====== -->
+  <div id="confirmationScreen" class="screen">
+    <div class="header">
+      <span class="header-title">✅ ¡Pedido enviado!</span>
+    </div>
+    <div class="screen-content">
+      <div class="confirmation-card">
+        <h2>¡Gracias, <span id="confirmName">Cliente</span>!</h2>
+        <p>Tu pedido ha sido registrado correctamente.</p>
+        <div class="confirmation-details">
+          <h4>Resumen del pedido</h4>
+          <div id="confirmItems"></div>
+          <p><strong>Total:</strong> <span id="confirmTotal">$0.00</span></p>
+          <p><strong>Referencia:</strong> <span id="confirmRef">------</span></p>
+          <p><strong>Dirección de entrega:</strong> <span id="confirmAddress"></span></p>
+          <p><strong>Teléfono:</strong> <span id="confirmPhone"></span></p>
+          <p><strong>Notas:</strong> <span id="confirmNotes">Ninguna</span></p>
+        </div>
+        <p class="delivery-note">📦 Nos comunicaremos al <strong>0414-517-4446</strong> para coordinar tu delivery.</p>
+        <button id="newOrderBtn" class="btn btn-primary btn-block">Hacer otro pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
