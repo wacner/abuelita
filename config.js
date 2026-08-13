@@ -1,4 +1,4 @@
 
 // config.js
 // Reemplazar con la URL real del Apps Script
-const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwNdMEefPfvOy0GIHxsxcd8wGGNTDapV77DP6qrP0buSkqhC5HjfAz6eC16XtsiohV6/exec';
+const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxShm3TrBplgtT2zxE2isVm3pM8bWRX_6-wBTjSyYnFfPjyDqsqrQVKubxydbdGq_BC/exec';
